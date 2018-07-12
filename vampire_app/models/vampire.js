@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const vampireSchema = new Schema({
   //write your schema fields here
@@ -11,3 +13,9 @@ const vampireSchema = new Schema({
   victims: { type: Number, min: 0}
 });
 
+// injects your modelin into mongodb
+// name, article schema
+const Vampire = mongoose.model('Vampire', vampireSchema);
+
+// This Article is our model
+module.exports = Vampire;
