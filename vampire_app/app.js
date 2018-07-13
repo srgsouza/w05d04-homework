@@ -156,14 +156,35 @@ db.on('connected', () => {
 //   db.close();
 // });
 // love fancy cloaks but not if they also love either top hats or virgin blood * Hint - You will also have to use $nin *
-Vampire.find({ loves: { $eq: 'fancy cloaks', $nin: ['virgin blood', 'top hats'] }, }, (err, data) => {
-  console.log(data);
-  db.close();
-});
+// Vampire.find({ loves: { $eq: 'fancy cloaks', $nin: ['virgin blood', 'top hats'] }, }, (err, data) => {
+//   console.log(data);
+//   db.close();
+// });
 
 /////////////////////////////////////////////////
 //### Negative Selection
+// love ribbons but do not have brown eyes
+// Vampire.find({loves: 'ribbons'}, {eye_color: {$ne:'brown'}}, (err, data) => {
+//   console.log(data);
+//   db.close();
+// });
 
+// are not from Rome
+// Vampire.find({location: {$ne: 'Rome, Italy'}}, (err, data) => {
+//   console.log(data);
+//   db.close();
+// })
+// do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
+// Vampire.find({ loves: { $nin: ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocent', 'being tragic', 'brooding'] } }, (err, data) => {
+//   console.log(data);
+//   db.close();
+// });
+
+// have not killed more than 200 people
+// Vampire.find({victims: {$lt: 200}}, (err, data) => {
+//   console.log(data);
+//   db.close();
+// })
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
