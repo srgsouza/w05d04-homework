@@ -13,6 +13,14 @@ const db = mongoose.connection;
 const url = 'mongodb://localhost:27017/vampires';
 mongoose.connect(url, { useNewUrlParser: true })
 
+db.on('error', (err) => {
+  console.log(err, 'this is the error message');
+})
+
+db.on('connected', () => {
+  console.log('Mongoose is connected to mongodb');
+})
+
 /////////////////////////////////////////////////
 //Write your answers to add, query, update, remove, and Hungry for More below.
 
@@ -27,24 +35,54 @@ mongoose.connect(url, { useNewUrlParser: true })
 // });
 
 // ### Add some new vampire data
-Vampire.collection.insert({
-  name: 'Doris Dough',
-  hair_color: 'Dull',
-  eye_color: 'Dull',
-  dob: new Date(1956, 6, 18, 18, 18),
-  loves: ['brooding', 'shirtsleeves'],
-  location: 'New York, New York, US',
-  gender: 'f',
-  victims: 1258
-}, (err, data) => {
-  console.log("added one item");
-  mongoose.connection.close();
-});
+// Vampire.collection.insert({
+//   name: 'Doris Dough',
+//   hair_color: 'Dull',
+//   eye_color: 'Dull',
+//   dob: new Date(1956, 6, 18, 18, 18),
+//   loves: ['brooding', 'shirtsleeves'],
+//   location: 'New York, New York, US',
+//   gender: 'f',
+//   victims: 1258
+// }, (err, data) => {
+//   console.log("added one item");
+//   mongoose.connection.close();
+// });
 
 /////////////////////////////////////////////////
 // ## QUERYING
 /////////////////////////////////////////////////
 // ### Select by comparison
+// Find all the vampires that that are females
+// Vampire.find({ gender: 'f'}, (err, data) => {
+//   console.log(data);
+//   mongoose.connection.close();
+// })
+
+// // have greater than 500 victims
+// Vampire.find({ victims:{$gt:500} }, (err, data) => {
+//   console.log(data);
+//   mongoose.connection.close();
+// })
+
+// have fewer than or equal to 150 victims
+// Vampire.find({ victims: { $lte: 150 } }, (err, data) => {
+//   console.log(data);
+//   mongoose.connection.close();
+// })
+
+// have a victim count is not equal to 210234
+// Vampire.find({ victims: { $ne: 210234 } }, (err, data) => {
+//   console.log(data);
+//   mongoose.connection.close();
+// })
+
+// have greater than 150 AND fewer than 500 victims  
+// Vampire.find({ $and: [{ victims: { $gt: 150 } }, { victims: { $lt: 500 } }] }, (err, data) => {
+//   console.log(data);
+//   mongoose.connection.close();
+// });
+
 
 /////////////////////////////////////////////////
 // ### Select by exists or does not exist
