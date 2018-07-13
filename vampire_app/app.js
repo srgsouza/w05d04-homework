@@ -189,6 +189,28 @@ db.on('connected', () => {
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## REPLACE
+// replace the vampire called 'Claudia' with a vampire called 'Eve'. 'Eve' will have a key called 'portrayed_by' with the value 'Tilda Swinton'
+// Vampire.findOneAndUpdate(
+//   { name: 'Claudia' }, // search criteria of what to update
+//   { $set: { name: 'Eve', portrayed_by: 'Tilda Swinton' } }, // how to update it
+//   { new: true }, // tells findOneAndUpdate to return modified article, not the original
+//   (err, article) => {
+//     console.log(err);
+    
+//     console.log(article);
+//     db.close();
+// });
+
+
+// replace the first male vampire with another whose name is 'Guy Man', and who has a key 'is_actually' with the value 'were-lizard'
+// Vampire.findOneAndUpdate(
+//   { gender: 'm' }, // search criteria of what to update
+//   { $set: { name: 'Guy Man', is_actually: 'were-lizard' } }, // how to update it
+//   { new: true }, // tells findOneAndUpdate to return modified article, not the original
+//   (err, data) => {
+//     console.log(data);
+//     db.close();
+// });
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////

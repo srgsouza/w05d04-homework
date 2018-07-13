@@ -10,7 +10,8 @@ const vampireSchema = new Schema({
   loves: [String],
   location: { type: String },
   gender: { type: String },
-  victims: { type: Number, min: 0}
+  victims: { type: Number, min: 0},
+  portrayed_by: String
 });
 
 // injects your modelin into mongodb
