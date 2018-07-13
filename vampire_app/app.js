@@ -112,6 +112,29 @@ db.on('connected', () => {
 
 /////////////////////////////////////////////////
 // ### Select with OR
+// are from New York, New York, US or New Orleans, Louisiana, US
+// Vampire.find({ $or: [{ location: 'New York, New York, US' }, { location: 'New Orleans, Louisiana, US' }] }, (err, data) => {
+//   console.log(data);
+//   db.close();
+// })
+
+// love brooding or being tragic
+// Vampire.find({ loves: { $in: ['brooding', 'being tragic'] } }, (err, data) => {
+//   console.log(data);
+//   db.close();
+// });
+
+// have more than 1000 victims or love marshmallows
+// Vampire.find({ $or: [{ victims: { $gt: 1000 } }, { loves: { $in: ['brooding'] } }] }, (err, data) => {
+//   console.log(data);
+//   db.close();
+// })
+
+// have red hair or green eyes
+Vampire.find({ $or: [{ hair_color: 'red'}, { eye_color: 'green' }] }, (err, data) => {
+  console.log(data);
+  db.close();
+})
 
 /////////////////////////////////////////////////
 //### Select objects that match one of several values
