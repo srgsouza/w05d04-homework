@@ -86,6 +86,17 @@ db.on('connected', () => {
 
 /////////////////////////////////////////////////
 // ### Select by exists or does not exist
+// have a title property
+Vampire.find({ title: {exists: true}}, (err, data) => {
+  console.log(data);
+  db.close();
+})
+
+
+// do not have a victims property
+// have a title AND no victims
+// have victims AND the victims they have are greater than 1000
+
 
 /////////////////////////////////////////////////
 // ### Select with OR
