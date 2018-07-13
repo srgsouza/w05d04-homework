@@ -251,7 +251,7 @@ db.on('connected', () => {
 // })
 
 // We now no longer want to categorize female gender as "f", but rather as fems.Update all females so that the they are of gender "fems".
-// Vampire.update({ gender: 'f' }, { gender: 'fems' }, (err, data) => {
+// Vampire.updateMany({ gender: 'fem' }, { gender: 'fems' }, (err, data) => {
 //   console.log(data);
 //   db.close();
 // })
@@ -259,7 +259,18 @@ db.on('connected', () => {
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## REMOVE
+// Remove a single document wherein the hair_color is 'brown'
+// Vampire.findOneAndRemove(
+//   {hair_color: 'brown'}, (err, data) => {
+//   console.log(data);
+//   db.close();
+// })
 
+// We found out that the vampires with the blue eyes were just fakes! Let's remove all the vampires who have blue eyes from our database.
+// Vampire.deleteMany({eye_color: 'blue'}, (err, data) => {
+//   console.log(data);
+//   db.close();
+// })
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
