@@ -131,16 +131,39 @@ db.on('connected', () => {
 // })
 
 // have red hair or green eyes
-Vampire.find({ $or: [{ hair_color: 'red'}, { eye_color: 'green' }] }, (err, data) => {
-  console.log(data);
-  db.close();
-})
+// Vampire.find({ $or: [{ hair_color: 'red'}, { eye_color: 'green' }] }, (err, data) => {
+//   console.log(data);
+//   db.close();
+// })
 
 /////////////////////////////////////////////////
 //### Select objects that match one of several values
+// love either frilly shirtsleeves or frilly collars
+// Vampire.find({ $or: [{ loves: { $in: ['frilly shirtsleeves'] }, loves: { $in: ['frilly collars'] } } ] }, (err, data) => {
+//   console.log(data);
+//   db.close();
+// });
+
+// love brooding
+// Vampire.find({ loves: { $in: ['brooding'] } }, (err, data) => {
+//   console.log(data);
+//   db.close();
+// });
+
+// love at least one of the following: appearing innocent, trickery, lurking in rotting mansions, R & B music
+// Vampire.find({ loves: { $in: ['brooding', 'appearing innocent', 'trickery', 'lurking in rotting mansions', 'R & B music' ] } }, (err, data) => {
+//   console.log(data);
+//   db.close();
+// });
+// love fancy cloaks but not if they also love either top hats or virgin blood * Hint - You will also have to use $nin *
+Vampire.find({ loves: { $eq: 'fancy cloaks', $nin: ['virgin blood', 'top hats'] }, }, (err, data) => {
+  console.log(data);
+  db.close();
+});
 
 /////////////////////////////////////////////////
 //### Negative Selection
+
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
