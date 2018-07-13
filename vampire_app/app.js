@@ -87,16 +87,28 @@ db.on('connected', () => {
 /////////////////////////////////////////////////
 // ### Select by exists or does not exist
 // have a title property
-Vampire.find({ title: {exists: true}}, (err, data) => {
-  console.log(data);
-  db.close();
-})
-
+// Vampire.find({ title: {$exists: true}}, (err, data) => {
+//   console.log(data);
+//   db.close();
+// })
 
 // do not have a victims property
-// have a title AND no victims
-// have victims AND the victims they have are greater than 1000
+// Vampire.find({ victims: { $exists: false } }, (err, data) => {
+//   console.log(data);
+//   db.close();
+// })
 
+// have a title AND no victims
+// Vampire.find({ $and: [{title: {$exists: true}}, {victims: { $exists: false }}] }, (err, data) => {
+//   console.log(data);
+//   db.close();
+// })
+
+// have victims AND the victims they have are greater than 1000
+// Vampire.find({ $and: [{ victims: { $gte: 1000 } }, { victims: { $exists: true } }] }, (err, data) => {
+//   console.log(data);
+//   db.close();
+// })
 
 /////////////////////////////////////////////////
 // ### Select with OR
