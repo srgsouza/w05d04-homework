@@ -214,11 +214,52 @@ db.on('connected', () => {
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
+// Vampire.findOneAndUpdate({}, (err, data) => {
+//   console.log(data);
+//   db.close();
+// })
+
 // ## UPDATE
+// Update 'Guy Man' to have a gender of 'f'
+// Vampire.findOneAndUpdate({name:'Guy Man'}, {$set: {gender: 'f'}}, {new: true}, (err, data) => {
+//   console.log(data);
+//   db.close();
+// })
+
+// Update 'Eve' to have a gender of 'm'
+// Vampire.findOneAndUpdate({ name: 'Eve' }, { $set: { gender: 'm' } }, { new: true }, (err, data) => {
+//   console.log(data);
+//   db.close();
+// })
+
+// Update 'Guy Man' to have an array called 'hates' that includes 'clothes' and 'jobs'
+// Vampire.findOneAndUpdate({ name: 'Guy Man' }, { $set: { hates: ['clothes', 'jobs'] } }, { new: true }, (err, data) => {
+//   console.log(data);
+//   db.close();
+// })
+
+// Update 'Guy Man's' hates array also to include 'alarm clocks' and 'jackalopes'
+// Vampire.findOneAndUpdate({ name: 'Guy Man' }, { $set: { hates: ['clothes', 'jobs', 'alarm clocks', 'jackalopes' ] } }, { new: true }, (err, data) => {
+//   console.log(data);
+//   db.close();
+// })
+
+// Rename 'Eve's' name field to 'moniker'
+// Vampire.findOneAndUpdate({ name: 'Eve' }, { $set: { name: 'moniker' } }, { new: true }, (err, data) => {
+//   console.log(data);
+//   db.close();
+// })
+
+// We now no longer want to categorize female gender as "f", but rather as fems.Update all females so that the they are of gender "fems".
+// Vampire.update({ gender: 'f' }, { gender: 'fems' }, (err, data) => {
+//   console.log(data);
+//   db.close();
+// })
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## REMOVE
+
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
